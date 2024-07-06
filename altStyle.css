@@ -1,0 +1,103 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.top-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.top-box input {
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.main-image {
+    grid-column: span 2;
+    position: relative;
+    padding: 20px;
+   
+}
+
+.main-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.sub-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+.sub-image {
+    padding: 20px;
+ 
+}
+
+.sub-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 5px solid #ccc;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.main-image img:hover,
+.sub-image img:hover {
+    border-color: #3b386a;
+    transform: scale(1.05);
+}
+
+figcaption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+    padding-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-image {
+        grid-column: span 1;
+    }
+
+    .sub-images {
+        grid-template-columns: 1fr;
+    }
+}

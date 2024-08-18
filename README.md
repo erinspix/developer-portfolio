@@ -1,35 +1,25 @@
-# Mod2-Challenge-2
-Mod 012 challenge 02
-Developer's Name, Photo, and Links:
-
+Portfolio Website
+Developer Information
 Name: Erin Spix
-Photo: Included in the About section as a recent avatar.
-Navigation Links: Work, About, Skills, Extra, and Gallery sections are linked in the header navigation.
-Navigation Links Scroll to Sections:
+Photo: Included as a recent avatar in the About section.
+Navigation Links: Header navigation links to Work, About, Skills, Extra, and Gallery sections.
 
-Clicking on any link in the navigation bar smoothly scrolls the page to the corresponding section.
-Work Section with Application Images:
+##Project Overview
+This project involved creating a responsive developer portfolio to showcase previous work, with an emphasis on smooth navigation and user experience.
 
-The Work section contains a carousel with images of the developer's applications.
-Each application image has a hover overlay that provides a description of the project.
-Larger First Application Image:
+##Key Features
+Smooth Navigation: Clicking on any header link scrolls smoothly to the corresponding section.
+Work Section: Features a carousel with images of the developer's applications, with the first image being larger.
+Clickable Application Images: Each application image links directly to the deployed project.
+Responsive Design: The layout adapts to various screen sizes, switching to a single-column format on smaller screens.
 
-The first application's image in the carousel is larger than the others.
-Clickable Application Images:
-
-Clicking on the images of the applications in the Work section will take you to the respective deployed applications.
-Responsive Design:
-
-The portfolio features a responsive layout that adapts to various screen sizes and devices. The layout switches to a single-column format on smaller screens.
-
-What I Learned
-HTML and CSS Skills: Improved my understanding of HTML and CSS by building a structured and styled portfolio.
-Responsive Design: Gained experience in making web pages responsive to various screen sizes and devices.
-CSS Animations and Transitions: Learned how to use CSS for smooth animations and transitions, such as hover effects and carousel scrolling.
-Project Structuring: Enhanced my ability to organize and structure a web project, including commenting and documenting code effectively.
-Problem-Solving: Developed problem-solving skills by addressing issues related to layout, design, and responsiveness without using JavaScript.
+##What I Learned
+HTML & CSS Skills: Improved my understanding of structuring and styling web content.
+Responsive Design: Gained experience in creating layouts that adapt to different devices.
+CSS Animations: Learned to implement smooth animations and hover effects without JavaScript.
+Project Structuring: Enhanced my ability to organize and document code effectively.
 Contact
-For any inquiries, please contact Erin Spix at:
+For any inquiries, please contact:
 
 Email: e.spix@yahoo.com
 Phone: (please hesitate to call me)

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>erin spix challenge </title>
+    <title>erin spix dev portfolio</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
@@ -47,26 +47,7 @@
                         <div class="overlay">This project represents my final thesis at the College for Creative Studies (CCS), focusing on the creation of procedurally generated textures for 3D environments. The textures were developed using Substance Designer, a specialized software for creating parametric textures. The process involved a combination of node-based and visual programming techniques, allowing for the creation of complex, customizable, and scalable textures. This approach demonstrates advanced skills in technical artistry, combining traditional design principles with cutting-edge digital tools to produce high-quality, adaptable textures suitable for various 3D applications in fields such as game development, architectural visualization, and film</div>
                     </div>
                    
-                    <div class="carousel-item">
-                        <img src="assets/gradcap.jpg" alt="graduation cap">
-                        <div class="overlay">At my alma mater, decorating graduation caps is a cherished tradition. This is my contribution: a meticulously crafted design using acrylic paint on fabric. The cap showcases both creativity and practicality - it's 100% reusable, blending artistic expression with sustainability. It's a unique representation of my academic journey and personal style."</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/oldboldandbrash.jpg" alt="Its old bold and Brash!">
-                        <div class="overlay">This piece was created in response to a friend's observation that I wasn't painting frequently enough. Inspired by this feedback, I produced this artwork as a gift. It serves as both a personal challenge and a demonstration of my artistic capabilities, addressing the suggestion while showcasing my skills in painting. </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/inventoryaudit.jpg" alt="Inventory accuracy graphicc">
-                        <div class="overlay">This project is a social media graphic that explores the principles of isometric design. Isometric projection is a method of visual representation of three-dimensional objects in two dimensions, where the three coordinate axes appear equally foreshortened. This graphic demonstrates the application of isometric techniques in creating depth and dimension within a flat, digital medium, specifically tailored for social media platforms</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/plasterfinal.jpg" alt="Plaster pour porject">
-                        <div class="overlay">This piece represents a practical application of Renaissance sculpture techniques I studied during my time abroad. The work showcases the traditional method of creating a plaster mold from an original clay sculpture. This process, widely used during the Renaissance, allows for the reproduction and preservation of sculptural forms. The plaster mold captures the intricate details of the original clay work, demonstrating the technical skills and historical methods I learned during my international studies</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/thesis.jpg" alt="senior thesis board">
-                        <div class="overlay">This project represents my final thesis at the College for Creative Studies (CCS), focusing on the creation of procedurally generated textures for 3D environments. The textures were developed using Substance Designer, a specialized software for creating parametric textures. The process involved a combination of node-based and visual programming techniques, allowing for the creation of complex, customizable, and scalable textures. This approach demonstrates advanced skills in technical artistry, combining traditional design principles with cutting-edge digital tools to produce high-quality, adaptable textures suitable for various 3D applications in fields such as game development, architectural visualization, and film</div>
-                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -171,5 +152,49 @@
             </div>
         </div>
     </footer>
+     <!-- JavaScript to handle the carousel logic -->
+     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselInner = document.querySelector('.carousel-inner');
+            const carouselItems = Array.from(document.querySelectorAll('.carousel-item'));
+            let currentIndex = 0;
+
+            // Clone the first and last items to create an infinite loop effect
+            const firstClone = carouselItems[0].cloneNode(true);
+            const lastClone = carouselItems[carouselItems.length - 1].cloneNode(true);
+
+            carouselInner.appendChild(firstClone);
+            carouselInner.insertBefore(lastClone, carouselItems[0]);
+
+            // Adjust carousel width to fit all items including the clones
+            const totalItems = carouselItems.length + 2; // Include clones
+            carouselInner.style.width = `${500 * totalItems}px`;
+
+            // Set initial position to show the first actual item
+            let offset = -500; // Move by one item width to account for the lastClone at the start
+            carouselInner.style.transform = `translateX(${offset}px)`;
+
+            function moveToNextSlide() {
+                if (currentIndex >= carouselItems.length) {
+                    currentIndex = 0;
+                    offset = -500; // Reset to first item (skip clone at the end)
+                    carouselInner.style.transition = 'none';
+                    carouselInner.style.transform = `translateX(${offset}px)`;
+                    setTimeout(() => {
+                        carouselInner.style.transition = 'transform 0.5s ease-in-out';
+                        moveToNextSlide();
+                    }, 50);
+                } else {
+                    offset -= 500; // Move to the next slide
+                    carouselInner.style.transform = `translateX(${offset}px)`;
+                    currentIndex++;
+                }
+            }
+
+            setInterval(moveToNextSlide, 3000); // Automatically transition every 3 seconds
+        });
+    </script>
+</body>
+</html>
 </body>
 </html>

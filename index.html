@@ -158,26 +158,36 @@
             const carouselInner = document.querySelector('.carousel-inner');
             const carouselItems = Array.from(document.querySelectorAll('.carousel-item'));
             let currentIndex = 0;
-
-            // Clone the first and last items to create an infinite loop effect
+    
+            // Function to get item width dynamically based on screen size
+            function getItemWidth() {
+                return window.innerWidth < 768 ? window.innerWidth * 0.8 : 500; // Use 80% of screen width for mobile
+            }
+    
             const firstClone = carouselItems[0].cloneNode(true);
             const lastClone = carouselItems[carouselItems.length - 1].cloneNode(true);
-
+    
             carouselInner.appendChild(firstClone);
             carouselInner.insertBefore(lastClone, carouselItems[0]);
-
-            // Adjust carousel width to fit all items including the clones
+    
+            let itemWidth = getItemWidth();
             const totalItems = carouselItems.length + 2; // Include clones
-            carouselInner.style.width = `${500 * totalItems}px`;
-
-            // Set initial position to show the first actual item
-            let offset = -500; // Move by one item width to account for the lastClone at the start
+            carouselInner.style.width = `${itemWidth * totalItems}px`;
+    
+            let offset = -itemWidth; // Move by one item width to account for the lastClone at the start
             carouselInner.style.transform = `translateX(${offset}px)`;
-
+    
+            window.addEventListener('resize', () => {
+                itemWidth = getItemWidth();
+                carouselInner.style.width = `${itemWidth * totalItems}px`;
+                offset = -itemWidth * (currentIndex + 1);
+                carouselInner.style.transform = `translateX(${offset}px)`;
+            });
+    
             function moveToNextSlide() {
                 if (currentIndex >= carouselItems.length) {
                     currentIndex = 0;
-                    offset = -500; // Reset to first item (skip clone at the end)
+                    offset = -itemWidth; // Reset to first item (skip clone at the end)
                     carouselInner.style.transition = 'none';
                     carouselInner.style.transform = `translateX(${offset}px)`;
                     setTimeout(() => {
@@ -185,12 +195,12 @@
                         moveToNextSlide();
                     }, 50);
                 } else {
-                    offset -= 500; // Move to the next slide
+                    offset -= itemWidth; // Move to the next slide
                     carouselInner.style.transform = `translateX(${offset}px)`;
                     currentIndex++;
                 }
             }
-
+    
             setInterval(moveToNextSlide, 3000); // Automatically transition every 3 seconds
         });
     </script>

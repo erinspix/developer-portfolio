@@ -288,117 +288,97 @@ nav ul li a:hover {
     transform: translateY(-5px); /* Lift on hover */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow */
 }
+/* Mobile Responsive Design */
 
-/* Responsive design for smaller screens */
+/* General styles for screens 768px or smaller */
 @media (max-width: 768px) {
+    /* Stack the container sections in a single column for smaller screens */
     .container {
-        grid-template-columns: 1fr; /* Single column for smaller screens */
+        display: flex;
+        flex-direction: column; /* Stack sections vertically */
+        gap: 1rem; /* Space between sections */
     }
 
-    .main, .sub {
-        grid-column: span 1; /* Ensure proper stacking on smaller screens */
+    /* Reorder sections for a more logical flow on mobile */
+    #about {
+        order: 1; /* Move 'About' section to the top */
     }
 
+    #work {
+        order: 2; /* Display 'Work' section next */
+    }
+
+    #skills {
+        order: 3; /* Followed by 'Skills' section */
+    }
+
+    #gallery {
+        order: 4; /* Place the 'Gallery' section below the main sections */
+    }
+
+    #contact {
+        order: 5; /* Move 'Contact' section towards the end */
+    }
+
+    #quote {
+        order: 6; /* Place the 'Quote' section at the bottom */
+    }
+
+    /* Adjust carousel for mobile */
+    .carousel {
+        height: auto; /* Adjust height for smaller screens */
+    }
+
+    .carousel-item {
+        width: 90%; /* Use 90% of the screen width */
+        margin: auto; /* Center carousel items */
+    }
+
+    .carousel-item img {
+        width: 100%; /* Ensure image fits within the carousel item */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Skills grid - display items in a single column */
+    .skills-grid {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center-align the skill items */
+    }
+
+    /* Adjust image grid for gallery section */
     .image-grid {
         grid-template-columns: 1fr; /* Single column for images */
     }
 
-    .skills-grid {
-        flex-direction: column; /* Stack skills vertically */
+    /* Footer adjustments */
+    .footer-content, .footer-section {
+        flex-direction: column; /* Stack footer items vertically */
+        text-align: center; /* Center-align footer text */
     }
 
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-section {
-        text-align: center;
-        margin-bottom: 1.5rem;
+    .site-footer {
+        padding: 1rem; /* Reduce padding for smaller screens */
     }
 }
 
+/* Specific styles for even smaller screens (576px or less) */
 @media (max-width: 576px) {
+    /* Further reduce image sizes for very small screens */
     .carousel-item img {
-        width: 100%; /* Ensure carousel images fit smaller screens */
-        height: auto;
+        width: 85%; /* Smaller width for images */
     }
 
-    .carousel {
-        height: auto; /* Adjust carousel height for mobile */
+    .avatar {
+        width: 150px; /* Reduce size of avatar image */
+        height: 150px;
     }
 
-    .carousel-inner {
-        display: block; /* Adjust carousel layout for smaller screens */
+    /* Adjust font size for better readability on small devices */
+    h1, h2, h3 {
+        font-size: 1.8rem; /* Smaller headings */
     }
-}
 
-/* Footer Styles */
-.site-footer {
-    background-color: #ff1493; /* Pink background */
-    color: #fff;
-    padding: 2rem 0 1rem;
-    margin-top: 2rem;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Top shadow */
-    text-align: center; /* Center content */
-}
-
-.footer-content {
-    display: flex;
-    justify-content: center; /* Center content */
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin-bottom: 1rem;
-}
-
-.footer-section h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.footer-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-section a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s; /* Smooth transition */
-}
-
-.footer-section a:hover {
-    color: #ffff00; /* Yellow on hover */
-    text-shadow: 0 0 5px #ffff00; /* Glow effect */
-    animation: hoverEffect 0.3s forwards;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Top border */
-}
-
-@keyframes hoverEffect {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
+    p, .skill-item, .quote-section {
+        font-size: 1rem; /* Smaller paragraph text */
     }
 }

@@ -161,9 +161,10 @@
     
             // Function to get item width dynamically based on screen size
             function getItemWidth() {
-                return window.innerWidth < 768 ? window.innerWidth * 0.8 : 500; // Use 80% of screen width for mobile
+                return window.innerWidth < 768 ? window.innerWidth * 0.9 : 500; // Use 90% of screen width for mobile
             }
     
+            // Clone the first and last items to create an infinite loop effect
             const firstClone = carouselItems[0].cloneNode(true);
             const lastClone = carouselItems[carouselItems.length - 1].cloneNode(true);
     
@@ -174,7 +175,7 @@
             const totalItems = carouselItems.length + 2; // Include clones
             carouselInner.style.width = `${itemWidth * totalItems}px`;
     
-            let offset = -itemWidth; // Move by one item width to account for the lastClone at the start
+            let offset = -itemWidth; // Set initial position accounting for the last clone
             carouselInner.style.transform = `translateX(${offset}px)`;
     
             window.addEventListener('resize', () => {
@@ -187,7 +188,7 @@
             function moveToNextSlide() {
                 if (currentIndex >= carouselItems.length) {
                     currentIndex = 0;
-                    offset = -itemWidth; // Reset to first item (skip clone at the end)
+                    offset = -itemWidth; // Reset to the first item (skip clone at the end)
                     carouselInner.style.transition = 'none';
                     carouselInner.style.transform = `translateX(${offset}px)`;
                     setTimeout(() => {
@@ -201,9 +202,10 @@
                 }
             }
     
-            setInterval(moveToNextSlide, 3000); // Automatically transition every 3 seconds
+            setInterval(moveToNextSlide, 3000); // Automatically cycle every 3 seconds
         });
     </script>
+    
 </body>
 </html>
 </body>
